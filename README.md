@@ -77,3 +77,12 @@ npx expo install --fix
 - iPhone と開発 PC が同じ Wi-Fi か確認
 - `npx expo start --tunnel` で再起動して接続を試す
 
+
+
+## 8. 現在のMVP進捗（Phase 2）
+
+- 買い物リスト機能（ローカル保存）
+  - 追加
+  - チェックON/OFF
+  - 削除
+- データ保存: `AsyncStorage`（アプリ再起動後も保持）
