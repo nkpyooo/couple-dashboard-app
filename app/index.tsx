@@ -4,11 +4,14 @@ import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
 export default function HomeScreen() {
   return (
     <SafeAreaView style={styles.container}>
+      <Text style={styles.header}>夫婦共有生活ダッシュボード</Text>
+
       <View style={styles.card}>
-        <Text style={styles.title}>Couple Dashboard</Text>
-        <Text style={styles.subtitle}>Expo + React Native + TypeScript の初期構成です。</Text>
+        <Text style={styles.cardTitle}>今日の準備OK？</Text>
+        <Text style={styles.cardBody}>この画面を起点に、買い物・映画・定型文の MVP を段階的に追加していきます。</Text>
       </View>
-      <StatusBar style="auto" />
+
+      <StatusBar style="dark" />
     </SafeAreaView>
   );
 }
@@ -17,31 +20,31 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#F6F7FB',
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: 24
+    paddingHorizontal: 20,
+    paddingTop: 24
   },
-  card: {
-    width: '100%',
-    maxWidth: 420,
-    backgroundColor: '#FFFFFF',
-    borderRadius: 16,
-    padding: 24,
-    shadowColor: '#000000',
-    shadowOpacity: 0.08,
-    shadowRadius: 10,
-    shadowOffset: { width: 0, height: 4 },
-    elevation: 2
-  },
-  title: {
-    fontSize: 28,
+  header: {
+    fontSize: 24,
     fontWeight: '700',
     color: '#1D2736',
-    marginBottom: 12
+    marginBottom: 16
   },
-  subtitle: {
-    fontSize: 16,
-    lineHeight: 24,
+  card: {
+    backgroundColor: '#FFFFFF',
+    borderRadius: 16,
+    padding: 20,
+    borderWidth: 1,
+    borderColor: '#E6EAF2'
+  },
+  cardTitle: {
+    fontSize: 18,
+    fontWeight: '700',
+    color: '#1D2736',
+    marginBottom: 8
+  },
+  cardBody: {
+    fontSize: 15,
+    lineHeight: 22,
     color: '#455468'
   }
 });

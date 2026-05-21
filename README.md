@@ -1,34 +1,79 @@
 # couple-dashboard-app
 
-Expo SDK 54 / React Native / TypeScript ベースの初期アプリ構成です。
+夫婦で日常情報を共有するための、Expo + React Native + TypeScript ベースの iPhone 向けアプリです。
 
-## セットアップ
+## 1. 前提環境
 
-1. 依存関係をインストール
+- **Node.js**: 20 LTS 以上（推奨: 20.19 以上）
+- **npm**: 10 以上
+- **Expo Go (iOS)**: App Store からインストール
+- **Git**: GitHub 運用用
+
+## 2. 初期セットアップ
 
 ```bash
 npm install
+npx expo install --fix
 ```
 
-2. 開発サーバーを起動
+> `expo install --fix` は Expo SDK 54 互換の依存関係に揃えるため、初回セットアップで必ず実行してください。
+
+## 3. 開発開始コマンド
 
 ```bash
 npx expo start
 ```
 
-3. iOS の Expo Go で確認
-- ターミナルに表示される QR コードを iPhone のカメラで読み取ります。
-- Expo Go アプリでプロジェクトを開きます。
+補助コマンド:
 
-## スクリプト
-
-- `npm run start`: Expo 開発サーバー起動
-- `npm run ios`: iOS シミュレーター起動
-- `npm run android`: Android エミュレーター起動
+- `npm run ios`: iOS シミュレーターで起動
+- `npm run android`: Android エミュレーターで起動
 - `npm run web`: Web 起動
 - `npm run typecheck`: TypeScript 型チェック
+- `npm run fix:deps`: Expo 互換依存関係を再調整
 
-## ディレクトリ構成
+## 4. iPhone + Expo Go 実機確認
 
-- `app/`: 画面ルーティング（app directory 構成）
-- `docs/`: 要件・ロードマップ・UI ガイドライン
+1. `npx expo start` を実行
+2. ターミナルの QR コードを iPhone カメラで読み取る
+3. Expo Go でプロジェクトを開く
+4. ホーム画面に `Couple Dashboard` カードが表示されることを確認
+
+## 5. GitHub 運用方法
+
+1. `main` から作業ブランチを作成
+2. 実装後にコミット
+3. GitHub で Pull Request を作成
+4. PR には以下を記載
+   - 変更内容
+   - 実行したコマンド
+   - 確認結果（Expo Go / 型チェック）
+
+> ルール: **main へ直接 push しない**
+
+## 6. ディレクトリ構成
+
+- `app/`: Expo Router の画面ルーティング（app directory）
+- `docs/`: 要件、ロードマップ、UI ガイドライン
+
+## 7. トラブルシューティング
+
+### Q1. `npm install` が失敗する
+
+- 社内ネットワークやプロキシで npm registry が制限されていないか確認
+- 別ネットワーク（テザリング等）で再実行
+- `npm config get registry` が `https://registry.npmjs.org/` か確認
+
+### Q2. Expo の依存関係警告が出る
+
+```bash
+npx expo install --fix
+```
+
+を再実行し、SDK 54 推奨バージョンに揃えてください。
+
+### Q3. Expo Go で開けない
+
+- iPhone と開発 PC が同じ Wi-Fi か確認
+- `npx expo start --tunnel` で再起動して接続を試す
+
